@@ -1,78 +1,88 @@
-# 3D Organ Segmentation Viewer
+# Medical Images Segmentation & 3D Organ Viewer
 
-This project provides a Python-based GUI for visualizing 3D organ models (heart, liver, lungs) generated from medical segmentation masks. It includes scripts for converting mask images to 3D meshes and a PyVista-based viewer with interactive controls for organ switching, color, opacity, and visibility.
+This repository implements segmentation and 3D visualization for medical images of lungs, liver, and heart. It includes scripts and notebooks for mask conversion, 3D mesh generation, and a GUI application for interactive exploration of organ models.
 
 ## Features
-- Visualize 3D models of heart, liver, and lungs
-- Switch between organs using keyboard shortcuts (1: Heart, 2: Liver, 3: Lungs)
-- Adjust color and opacity of each organ
-- Toggle organ visibility
-- Automated conversion of PNG masks to NPY arrays and STL meshes
 
-## Folder Structure
-```
-heart_vis/
-├── cleaned_output/
-│   ├── heart_model_clean.stl
-│   ├── Liver_model_clean.stl
-│   ├── Lungs_model_clean.stl
-├── GT_heart/
-├── GT_lungs/
-├── masks_heart/
-├── masks_liver/
-├── masks_lungs/
-├── convert_gt_pngs_to_npy.py
-├── convert_pngs_to_npy.py
-├── heart_3d.py
-├── liver_3d.py
-├── lung_3d.py
-├── organ_3d_viewer.py
-```
+- Convert PNG segmentation masks (predicted / ground truth) into NumPy arrays.  
+- Generate clean 3D meshes (STL files) from mask arrays.  
+- Visualize the 3D organ models (heart, liver, lungs) via a GUI with controls for color, opacity, visibility, and switching organs.  
+- Support for keyboard shortcuts:  
+  - **1** — Heart  
+  - **2** — Liver  
+  - **3** — Lungs  
+
+## Repository Structure
+├── GT_heart/ # Ground truth masks for heart
+├── GT_lungs/ # Ground truth masks for lungs
+├── masks_heart/ # Predicted masks for heart
+├── masks_liver/ # Predicted masks for liver
+├── masks_lungs/ # Predicted masks for lungs
+├── cleaned_output/ # Output folder for cleaned STL models
+│ ├── heart_model_clean.stl
+│ ├── Liver_model_clean.stl
+│ ├── Lungs_model_clean.stl
+├── convert_gt_pngs_to_npy.py # Script to convert GT PNG masks → NPY
+├── convert_pngs_to_npy.py # Script to convert predicted PNG masks → NPY
+├── heart_3d.py # Convert heart NPY to STL
+├── liver_3d.py # Convert liver NPY to STL
+├── lung_3d.py # Convert lung NPY to STL
+├── organ_3d_viewer.py # GUI viewer for 3D organ models
+├── organ_viewer_gui.py # (Alternate GUI / support)
+├── Eval1.py # Evaluation/metrics scripts (if any)
+├── Eval2.py # Additional evaluation scripts
+└── *.ipynb # Jupyter notebooks (Heart_Seg, Liver_Seg, Lungs_Seg etc.)
 
 ## Requirements
-- Python 3.8+
-- pyvista
-- numpy
-- scikit-image
-- Pillow
-- imageio
 
-Install dependencies:
-```bash
-pip install pyvista numpy scikit-image Pillow imageio
-```
+- Python 3.8+  
+- numpy  
+- scikit-image  
+- Pillow  
+- imageio  
+- pyvista  
 
-## Usage
-1. **Convert PNG masks to NPY arrays:**
-   - Run `convert_gt_pngs_to_npy.py` and `convert_pngs_to_npy.py` to process ground truth and predicted masks.
-2. **Generate STL meshes:**
-   - Run `heart_3d.py`, `liver_3d.py`, and `lung_3d.py` to create 3D models in `cleaned_output/`.
-3. **Launch the viewer:**
-   - Run `organ_3d_viewer.py` to open the GUI and interact with the 3D models.
+Usage
+Convert segmentation masks
+      Run:
+      python convert_gt_pngs_to_npy.py
+      python convert_pngs_to_npy.py
+      
 
-## Controls
-- **Switch organs:** Press 1 (Heart), 2 (Liver), 3 (Lungs)
-- **Change color:** Use the color slider
-- **Change opacity:** Use the opacity slider
-- **Toggle visibility:** Use the checkbox
+to process ground truth and predicted masks into .npy arrays.
+      Generate 3D meshes (STL)
+      Run:
+      
+      python heart_3d.py
+      python liver_3d.py
+      python lung_3d.py
 
-## How to Upload to GitHub
-1. Initialize a git repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: 3D organ segmentation viewer"
-   ```
-2. Create a new repository on GitHub (https://github.com/new)
-3. Link your local repo and push:
-   ```bash
-   git remote add origin https://github.com/yourusername/your-repo-name.git
-   git branch -M main
-   git push -u origin main
-   ```
 
-## License
-MIT License
+This will output cleaned STL mesh files into the cleaned_output/ folder.
 
-## Contact
-For questions or contributions, open an issue or pull request on GitHub.
+Launch 3D viewer GUI
+      python organ_3d_viewer.py
+
+
+Then you can interactively:
+      Switch organs (1: Heart, 2: Liver, 3: Lungs)
+      
+      Adjust color / opacity
+      
+      Toggle visibility
+
+Evaluation
+      (Optional) Use Eval1.py, Eval2.py, or Jupyter notebooks (*.ipynb) to compute segmentation metrics (e.g., Dice, IoU) comparing predicted masks vs ground truth.
+      
+      Examples / Screenshots
+      
+      (You may add images or GIFs here of the 3D viewer in action, segmentation overlays, etc.)
+
+License
+      This project is released under the MIT License.
+
+Contributing
+      Contributions (bug fixes, enhancements, new organs, etc.) are welcome. Feel free to open issues or pull requests.
+
+Contact
+      If you have questions or suggestions, you can open an issue in this repository.
