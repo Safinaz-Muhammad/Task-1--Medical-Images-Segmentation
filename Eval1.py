@@ -3,6 +3,7 @@ from scipy.spatial.distance import directed_hausdorff
 import warnings
 warnings.filterwarnings('ignore')
 
+#claude
 # -----------------------------
 # Replace these with your actual .npy mask file paths
 # Ground truth masks (binary masks: 0 and 1)
