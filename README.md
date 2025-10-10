@@ -146,7 +146,10 @@ The following plots visualize the training and validation metrics for both model
 
 
 ### 📈 SegNet Metrics
-![HEART Metrics]<img width="446" height="590" alt="evaluation_heart _with_segnet" src="https://github.com/user-attachments/assets/e9628d37-8c60-48a8-9600-013d027a8492" />
+[HEART Metrics]<img width="446" height="590" alt="evaluation_heart _with_segnet" src="https://github.com/user-attachments/assets/e9628d37-8c60-48a8-9600-013d027a8492" />
+
+
+### For more you can clone the Repository
 
 
 License
