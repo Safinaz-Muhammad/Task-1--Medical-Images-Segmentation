@@ -71,12 +71,39 @@ Then you can interactively:
       
       Toggle visibility
 
+      
+
 Evaluation
       (Optional) Use Eval1.py, Eval2.py, or Jupyter notebooks (*.ipynb) to compute segmentation metrics (e.g., Dice, IoU) comparing predicted masks vs ground truth.
       
       Examples / Screenshots
       
       (You may add images or GIFs here of the 3D viewer in action, segmentation overlays, etc.)
+
+## Segmentation with U-Net and SegNet
+
+This project includes deep learning pipelines for segmenting **lungs, liver, and heart** from medical CT images using **U-Net** and **SegNet** architectures.
+
+### Features
+
+- Train U-Net and SegNet on 2D slices of organs.
+- Preprocess images and masks to a consistent size (128×128 by default).
+- Metrics supported: Accuracy, Dice Coefficient, IoU, Precision, Recall.
+- Visualize predictions overlaying original images with predicted and ground truth masks.
+- Split datasets into training and validation sets for robust evaluation.
+
+### Dataset Loading
+
+```python
+from data_loader import load_dataset
+
+# Example: load lungs dataset
+X, y = load_dataset("lungs")
+
+# Train/Validation split
+from sklearn.model_selection import train_test_split
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+```
 
 License
       This project is released under the MIT License.
