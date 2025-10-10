@@ -103,7 +103,51 @@ X, y = load_dataset("lungs")
 # Train/Validation split
 from sklearn.model_selection import train_test_split
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+
 ```
+# 🧩 Organ Segmentation Results
+
+This repository contains visual results for three segmented organs obtained from our model predictions.
+
+## 🫀 Heart
+<img width="950" height="315" alt="heart_segmentation_unet" src="https://github.com/user-attachments/assets/65e971da-202c-4037-ad64-bb5160296095" />
+
+<img width="993" height="339" alt="heart_segmentation_with_segnet" src="https://github.com/user-attachments/assets/f97eb396-a8ca-4661-8e6a-c3daf9356f04" />
+
+
+## 🫁 Lung
+<img width="950" height="315" alt="lungs unet segmentation" src="https://github.com/user-attachments/assets/dd9c5ee9-a213-499d-baff-cd0a6bc7e6b3" />
+
+
+## 🧫 Liver
+<img width="950" height="315" alt="liver unet segmentation" src="https://github.com/user-attachments/assets/e79203d8-f9c5-4e05-b48d-4464d0b53145" />
+
+
+---
+
+Each image shows the segmented organ mask output for testing samples.  
+All visualizations were generated using model predictions and saved as PNG files.
+## ⚙️ Evaluation Metrics
+
+| Metric | Description |
+|:--------|:-------------|
+| **Dice Coefficient** | Measures overlap between predicted and true masks (higher is better). |
+| **IoU (Intersection over Union)** | Evaluates segmentation accuracy by comparing intersection to union area. |
+| **Accuracy** | Indicates overall proportion of correctly classified pixels. |
+
+## 📉 some Metric Plots
+
+The following plots visualize the training and validation metrics for both models:
+
+### 📈 U-Net Metrics
+
+<img width="1789" height="490" alt="liver unrt evaluation" src="https://github.com/user-attachments/assets/41fc3be5-a3d3-47d3-844a-afb8055cae90" />
+
+
+
+### 📈 SegNet Metrics
+![HEART Metrics]<img width="446" height="590" alt="evaluation_heart _with_segnet" src="https://github.com/user-attachments/assets/e9628d37-8c60-48a8-9600-013d027a8492" />
+
 
 License
       This project is released under the MIT License.
