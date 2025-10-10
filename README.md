@@ -78,6 +78,44 @@ Evaluation
       
       (You may add images or GIFs here of the 3D viewer in action, segmentation overlays, etc.)
 
+
+## Segmentation with U-Net and SegNet
+
+This project includes deep learning pipelines for segmenting **lungs, liver, and heart** from medical CT images using **U-Net** and **SegNet** architectures.
+
+### Features
+
+- Train U-Net and SegNet on 2D slices of organs.
+- Preprocess images and masks to a consistent size (128×128 by default).
+- Metrics supported: Accuracy, Dice Coefficient, IoU, Precision, Recall.
+- Visualize predictions overlaying original images with predicted and ground truth masks.
+- Split datasets into training and validation sets for robust evaluation.
+
+### Dataset Loading
+
+```python
+from data_loader import load_dataset
+
+# Example: load lungs dataset
+X, y = load_dataset("lungs")
+
+# Train/Validation split
+from sklearn.model_selection import train_test_split
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+### Lungs Segmentation with U-Net
+
+Here’s an example of the U-Net segmentation result on lung CT images:
+
+![Lungs Segmentation](images/lung_segmentation_example.png)
+
+### Evaluation Metrics
+
+The following plot shows the training history including accuracy, Dice coefficient, and IoU score:
+
+![Lungs U-Net Metrics](images/lungs_unet_metrics.png)
+
+
 License
       This project is released under the MIT License.
 
